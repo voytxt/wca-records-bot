@@ -19,8 +19,7 @@ export function decodeMbldAttemptResult(value: number) {
 }
 
 function formatMbldAttemptResult(attemptResult: number) {
-  const { solved, attempted, centiseconds } =
-    decodeMbldAttemptResult(attemptResult);
+  const { solved, attempted, centiseconds } = decodeMbldAttemptResult(attemptResult);
   const clockFormat = centisecondsToClockFormat(centiseconds);
   const shortClockFormat = clockFormat.replace(/\.00$/, '');
   return `${solved}/${attempted} ${
@@ -32,16 +31,12 @@ function formatFmAttemptResult(attemptResult: number) {
   /* Note: FM singles are stored as the number of moves (e.g. 25),
      while averages are stored with 2 decimal places (e.g. 2533 for an average of 25.33 moves). */
   const isAverage = attemptResult >= 1000;
-  return isAverage
-    ? (attemptResult / 100).toFixed(2)
-    : attemptResult.toString();
+  return isAverage ? (attemptResult / 100).toFixed(2) : attemptResult.toString();
 }
 
 export function centisecondsToClockFormat(centiseconds: number) {
   if (!Number.isFinite(centiseconds)) {
-    throw new Error(
-      `Invalid centiseconds, expected positive number, got ${centiseconds}.`
-    );
+    throw new Error(`Invalid centiseconds, expected positive number, got ${centiseconds}.`);
   }
   return new Date(centiseconds * 10)
     .toISOString()
@@ -52,5 +47,5 @@ export function centisecondsToClockFormat(centiseconds: number) {
 // --------------------------------------------------------------------------------------------
 
 export function capitalizeFirstLetter(val: string) {
-    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
