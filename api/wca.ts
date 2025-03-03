@@ -56,7 +56,7 @@ export async function getRecords(): Promise<Record[]> {
       id: r.id,
       tag: r.tag as 'WR' | 'CR',
       type: capitalizeFirstLetter(r.type) as 'Single' | 'Average',
-      time: formatAttemptResult(r.attemptResult, r.result.round.competitionEvent.event.id),
+      result: formatAttemptResult(r.attemptResult, r.result.round.competitionEvent.event.id),
       // get rid of the chinese part, because the Montserrat font doesn't support it, e.g. Ng Jia Quan (黄佳铨)
       person: r.result.person.name.replace(/\(.*\)/g, '').trim(),
       country: r.result.person.country.name,

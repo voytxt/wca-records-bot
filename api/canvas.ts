@@ -39,15 +39,14 @@ export function getImage(record: Record): Uint8Array {
   ctx.font = fitText(`${record.event} ${record.type} ${record.tag}`, 900, 48);
   ctx.fillText(`${record.event} ${record.type} ${record.tag}`, 500, 100);
 
-  const personText = `by ${record.person}`;
-  ctx.font = fitText(personText, 900, 48);
-  ctx.fillText(personText, 500, 175);
+  ctx.font = fitText(`by ${record.person}`, 900, 48);
+  ctx.fillText(`by ${record.person}`, 500, 175);
 
   ctx.font = '256px cubing-icons';
   ctx.fillText(record.icon, 500, 610);
 
-  ctx.font = fitText(record.time.toString(), 900, 224);
-  ctx.fillText(record.time.toString(), 500, 925);
+  ctx.font = fitText(record.result, 900, 224);
+  ctx.fillText(record.result, 500, 925);
 
   return canvas.toBuffer('image/png');
 }

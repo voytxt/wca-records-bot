@@ -3,8 +3,9 @@ import { AtpAgent, RichText } from '@atproto/api';
 import { getRecords } from './wca.js';
 import { getImage } from './canvas.js';
 import * as aw from 'node-appwrite';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-export default async (_, response) => {
+export default async (_: VercelRequest, response: VercelResponse) => {
   console.log('logging into bluesky');
   const agent = new AtpAgent({ service: 'https://bsky.social' });
   await agent.login({ identifier: 'wca.voytxt.com', password: process.env.BSKY_PASSWORD });
@@ -33,7 +34,7 @@ export default async (_, response) => {
 
     console.log('posting');
     const richText = new RichText({
-      text: `${record.person} from ${record.country} set a new #speedcubing ${record.tag} in ${record.event} ${record.type} of ${record.time}!`,
+      text: `${record.person} from ${record.country} set a new #speedcubing ${record.tag} in ${record.event} ${record.type} of ${record.result}!`,
     });
     await richText.detectFacets(agent);
     await agent.post({
@@ -44,7 +45,7 @@ export default async (_, response) => {
         images: [
           {
             image: blob,
-            alt: `${record.event} ${record.type} ${record.tag} by ${record.person}; ${record.time}`,
+            alt: `${record.event} ${record.type} ${record.tag} by ${record.person}; ${record.result}`,
             aspectRatio: { width: 1000, height: 1000 },
           },
         ],
@@ -63,7 +64,7 @@ export type Record = {
   id: string;
   tag: 'WR' | 'CR';
   type: 'Single' | 'Average';
-  time: string;
+  result: string;
   person: string;
   country: string;
   event: string;
