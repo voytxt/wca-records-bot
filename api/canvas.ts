@@ -25,14 +25,28 @@ export function getImage(record: Record): Uint8Array {
   ctx.fillStyle = 'white';
   ctx.textAlign = 'center';
 
-  ctx.font = '48px Montserrat';
+  function fitText(txt: string, maxW: number, maxF: number): string {
+    let f = maxF;
+    ctx.font = `${f}px Montserrat`;
+
+    while (ctx.measureText(txt).width > maxW) {
+      f -= 4;
+      ctx.font = `${f}px Montserrat`;
+    }
+    return ctx.font;
+  }
+
+  ctx.font = fitText(`${record.event} ${record.type} ${record.tag}`, 900, 48);
   ctx.fillText(`${record.event} ${record.type} ${record.tag}`, 500, 100);
-  ctx.fillText(`by ${record.person}`, 500, 175);
+
+  const personText = `by ${record.person}`;
+  ctx.font = fitText(personText, 900, 48);
+  ctx.fillText(personText, 500, 175);
 
   ctx.font = '256px cubing-icons';
   ctx.fillText(record.icon, 500, 610);
 
-  ctx.font = '224px Montserrat';
+  ctx.font = fitText(record.time.toString(), 900, 224);
   ctx.fillText(record.time.toString(), 500, 925);
 
   return canvas.toBuffer('image/png');

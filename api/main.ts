@@ -62,8 +62,8 @@ export default async (_, response) => {
 export type Record = {
   id: string;
   tag: 'WR' | 'CR';
-  type: 'single' | 'average';
-  time: number;
+  type: 'Single' | 'Average';
+  time: string;
   person: string;
   country: string;
   event: string;
