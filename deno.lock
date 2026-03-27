@@ -1,17 +1,17 @@
 {
   "version": "5",
   "specifiers": {
-    "npm:@atproto/api@0.14.7": "0.14.7",
-    "npm:canvas@3.1.0": "3.1.0",
-    "npm:wretch@2.11.0": "2.11.0"
+    "npm:@atproto/api@0.19": "0.19.5",
+    "npm:canvas@3.2.2": "3.2.2",
+    "npm:wretch@3.0": "3.0.7"
   },
   "npm": {
-    "@atproto/api@0.14.7": {
-      "integrity": "sha512-YG2kvAtsgtajLlLrorYuHcxGgepG0c/RUB2/iJyBnwKjGqDLG8joOETf38JSNiGzs6NJbNKa9NHG6BQKourxBA==",
+    "@atproto/api@0.19.5": {
+      "integrity": "sha512-u6R5TecYJDO8l8QFN09AMuJASYnUkJ4HhYE5hg4/dha/z14a+OAil2/dli/208uM5AHPFLtlnB8kIK9XU5GgQQ==",
       "dependencies": [
         "@atproto/common-web",
         "@atproto/lexicon",
-        "@atproto/syntax@0.3.4",
+        "@atproto/syntax",
         "@atproto/xrpc",
         "await-lock",
         "multiformats",
@@ -24,7 +24,7 @@
       "dependencies": [
         "@atproto/lex-data",
         "@atproto/lex-json",
-        "@atproto/syntax@0.5.2",
+        "@atproto/syntax",
         "zod"
       ]
     },
@@ -44,23 +44,14 @@
         "tslib"
       ]
     },
-    "@atproto/lexicon@0.4.14": {
-      "integrity": "sha512-jiKpmH1QER3Gvc7JVY5brwrfo+etFoe57tKPQX/SmPwjvUsFnJAow5xLIryuBaJgFAhnTZViXKs41t//pahGHQ==",
+    "@atproto/lexicon@0.6.2": {
+      "integrity": "sha512-p3Ly6hinVZW0ETuAXZMeUGwuMm3g8HvQMQ41yyEE6AL0hAkfeKFaZKos6BdBrr6CjkpbrDZqE8M+5+QOceysMw==",
       "dependencies": [
         "@atproto/common-web",
-        "@atproto/syntax@0.4.3",
+        "@atproto/syntax",
         "iso-datestring-validator",
         "multiformats",
         "zod"
-      ]
-    },
-    "@atproto/syntax@0.3.4": {
-      "integrity": "sha512-8CNmi5DipOLaVeSMPggMe7FCksVag0aO6XZy9WflbduTKM4dFZVCs4686UeMLfGRXX+X966XgwECHoLYrovMMg=="
-    },
-    "@atproto/syntax@0.4.3": {
-      "integrity": "sha512-YoZUz40YAJr5nPwvCDWgodEOlt5IftZqPJvA0JDWjuZKD8yXddTwSzXSaKQAzGOpuM+/A3uXRtPzJJqlScc+iA==",
-      "dependencies": [
-        "tslib"
       ]
     },
     "@atproto/syntax@0.5.2": {
@@ -69,8 +60,8 @@
         "tslib"
       ]
     },
-    "@atproto/xrpc@0.6.12": {
-      "integrity": "sha512-Ut3iISNLujlmY9Gu8sNU+SPDJDvqlVzWddU8qUr0Yae5oD4SguaUFjjhireMGhQ3M5E0KljQgDbTmnBo1kIZ3w==",
+    "@atproto/xrpc@0.7.7": {
+      "integrity": "sha512-K1ZyO/BU8JNtXX5dmPp7b5UrkLMMqpsIa/Lrj5D3Su+j1Xwq1m6QJ2XJ1AgjEjkI1v4Muzm7klianLE6XGxtmA==",
       "dependencies": [
         "@atproto/lexicon",
         "zod"
@@ -97,8 +88,8 @@
         "ieee754"
       ]
     },
-    "canvas@3.1.0": {
-      "integrity": "sha512-tTj3CqqukVJ9NgSahykNwtGda7V33VLObwrHfzT0vqJXu7J4d4C/7kQQW3fOEGDfZZoILPut5H00gOjyttPGyg==",
+    "canvas@3.2.2": {
+      "integrity": "sha512-duEt4h1HHu9sJZyVKfLRXR6tsKPY7cEELzxSRJkwddOXYvQT3P/+es98SV384JA0zMOZ5s+9gatnGfM6sL4Drg==",
       "dependencies": [
         "node-addon-api",
         "prebuild-install"
@@ -295,8 +286,8 @@
     "wrappy@1.0.2": {
       "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
     },
-    "wretch@2.11.0": {
-      "integrity": "sha512-zbFW4PnPSS5RFQabHRkCAcMQjmFGrEQLcJwYe4YGXL9KWXneu03Dtaz2JUeqEkOwNDMjdfHEHPL+AIZJwE+y1g=="
+    "wretch@3.0.7": {
+      "integrity": "sha512-1zvhHLcwjGx5OMGHcdkuVmHWd/8NQ0gS4oV6+Er1YTnav4QTMTDl7ZI5QklELNVsX1BDNQk2kUrhoUSILomelg=="
     },
     "zod@3.25.76": {
       "integrity": "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="
@@ -304,9 +295,9 @@
   },
   "workspace": {
     "dependencies": [
-      "npm:@atproto/api@0.14.7",
-      "npm:canvas@3.1.0",
-      "npm:wretch@2.11.0"
+      "npm:@atproto/api@0.19",
+      "npm:canvas@3.2.2",
+      "npm:wretch@3.0"
     ]
   }
 }
