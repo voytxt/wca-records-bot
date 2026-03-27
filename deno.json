@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "run": "deno run -A --env-file --unstable-cron --unstable-kv api/main.ts"
+  },
+  "imports": {
+    "canvas": "npm:canvas@3.1.0",
+    "atproto": "npm:@atproto/api@0.14.7",
+    "wretch": "npm:wretch@2.11.0"
+  },
+  "nodeModulesDir": "manual",
+  "allowScripts": ["npm:canvas@3.1.0"]
+}

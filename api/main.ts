@@ -1,22 +1,22 @@
-import 'dotenv';
 import { AtpAgent, RichText } from '@atproto/api';
-import { getRecords } from './wca.js';
-import { getImage } from './canvas.js';
-import * as aw from 'node-appwrite';
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { getImage } from './canvas.ts';
+import { getRecords } from './wca.ts';
 
-export default async (_: VercelRequest, response: VercelResponse) => {
+Deno.cron('update', { minute: { every: 10 } }, async () => {
+  const db = await Deno.openKv();
+
   console.log('logging into bluesky');
   const agent = new AtpAgent({ service: 'https://bsky.social' });
-  await agent.login({ identifier: 'wca.voytxt.com', password: process.env.BSKY_PASSWORD });
+  await agent.login({
+    identifier: 'fasdjlkfasdfjkl.bsky.social',
+    password: Deno.env.get('BSKY_PASSWORD')!,
+  });
 
   console.log('fetching prev ids');
-  const client = new aw.Client()
-    .setEndpoint('https://cloud.appwrite.io/v1')
-    .setProject('wca-records')
-    .setKey(process.env.APPWRITE_API_KEY);
-  const db = new aw.Databases(client);
-  const prevIds = (await db.getDocument('db', 'collection', 'prev-ids')).ids as string[];
+
+  const prevIds = ((await db.get(['prev-ids'])).value ?? []) as string[];
+
+  console.log(prevIds);
 
   console.log(`refetching records (prev record count: ${prevIds.length})`);
   const newRecords = await getRecords();
@@ -54,11 +54,14 @@ export default async (_: VercelRequest, response: VercelResponse) => {
   }
 
   console.log('updating db');
-  await db.updateDocument('db', 'collection', 'prev-ids', { ids: newRecords.map((r) => r.id) });
+  await db.set(
+    ['prev-ids'],
+    newRecords.map((r) => r.id),
+  );
 
   console.log('done');
-  return response.send('done');
-};
+  db.close();
+});
 
 export type Record = {
   id: string;

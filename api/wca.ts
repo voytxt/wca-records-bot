@@ -1,7 +1,7 @@
 import wretch from 'wretch';
-import { Record } from './main.js';
-import { getIcon } from './cubing-icons.js';
-import { capitalizeFirstLetter, formatAttemptResult } from './format.js';
+import { getIcon } from './cubing-icons.ts';
+import { capitalizeFirstLetter, formatAttemptResult } from './format.ts';
+import { Record } from './main.ts';
 
 export async function getRecords(): Promise<Record[]> {
   const response = await wretch('https://live.worldcubeassociation.org/api')

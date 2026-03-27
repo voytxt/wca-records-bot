@@ -1,10 +1,10 @@
-import { Record } from './main.js';
 import { createCanvas, registerFont } from 'canvas';
-import path from 'path';
+import path from 'node:path';
+import { Record } from './main.ts';
 
 export function getImage(record: Record): Uint8Array {
-  registerFont(path.join(process.cwd(), 'fonts', 'cubing-icons.ttf'), { family: 'cubing-icons' });
-  registerFont(path.join(process.cwd(), 'fonts', 'montserrat.ttf'), { family: 'Montserrat' });
+  registerFont(path.join(Deno.cwd(), 'fonts', 'cubing-icons.ttf'), { family: 'cubing-icons' });
+  registerFont(path.join(Deno.cwd(), 'fonts', 'montserrat.ttf'), { family: 'Montserrat' });
 
   const canvas = createCanvas(1000, 1000);
   const ctx = canvas.getContext('2d');
