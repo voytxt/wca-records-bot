@@ -12,6 +12,8 @@ I migrated off of Appwrite, beacuse of their new pricing changes as well as thei
 3. Run `deno task run`
 4. The code will now run every 10 minutes
 
+For deployment to Deno Deploy, just run `deno deploy --prod`.
+
 <details>
 
 <summary>old readme</summary>

@@ -1,6 +1,8 @@
-import { AtpAgent, RichText } from '@atproto/api';
+import { AtpAgent, RichText } from 'atproto';
 import { getImage } from './canvas.ts';
 import { getRecords } from './wca.ts';
+
+Deno.serve(() => new Response());
 
 Deno.cron('update', { minute: { every: 10 } }, async () => {
   const db = await Deno.openKv();

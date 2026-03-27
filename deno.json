@@ -8,5 +8,6 @@
     "wretch": "npm:wretch@2.11.0"
   },
   "nodeModulesDir": "manual",
-  "allowScripts": ["npm:canvas@3.1.0"]
+  "allowScripts": ["npm:canvas@3.1.0"],
+  "deploy": { "org": "voytxt", "app": "wca-records" }
 }
