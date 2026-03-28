@@ -10,7 +10,7 @@ Deno.cron('update', { minute: { every: 10 } }, async () => {
   console.log('logging into bluesky');
   const agent = new AtpAgent({ service: 'https://bsky.social' });
   await agent.login({
-    identifier: 'fasdjlkfasdfjkl.bsky.social',
+    identifier: Deno.env.get('BSKY_USER')!,
     password: Deno.env.get('BSKY_PASSWORD')!,
   });
 
