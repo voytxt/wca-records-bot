@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "run": "deno run -A --env-file --unstable-cron --unstable-kv api/main.ts"
+  },
+  "imports": {
+    "atproto": "npm:@atproto/api@0.19",
+    "canvas": "npm:canvas@3.2",
+    "wretch": "npm:wretch@3.0"
+  },
+  "nodeModulesDir": "manual",
+  "allowScripts": ["npm:canvas"],
+  "deploy": {
+    "org": "voytxt",
+    "app": "wca-records"
+  }
+}
