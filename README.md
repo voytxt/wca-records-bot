@@ -7,7 +7,7 @@ I migrated off of Appwrite, beacuse of their new pricing changes as well as thei
 ## How to run locally?
 
 0. Requirements: Deno installed
-1. Add a BSKY_PASSWORD env variable to the `.env` file
+1. Add a BSKY_USER and BSKY_PASSWORD to env variables (e.g. to the `.env` file)
 2. Run `deno install`
 3. Run `deno task run`
 4. The code will now run every 10 minutes
