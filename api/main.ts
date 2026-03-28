@@ -18,8 +18,6 @@ Deno.cron('update', { minute: { every: 10 } }, async () => {
 
   const prevIds = ((await db.get(['prev-ids'])).value ?? []) as string[];
 
-  console.log(prevIds);
-
   console.log(`refetching records (prev record count: ${prevIds.length})`);
   const newRecords = await getRecords();
 
